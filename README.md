@@ -1,322 +1,642 @@
-# Netskope to DLP Migration Script# Netskope to Minecast Migration Script
+# Netskope to DLP Migration Script# Netskope to DLP Migration Script# Netskope to Minecast Migration Script
 
 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)## Overview
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen.svg)](https://www.apple.com/macos/)
+[![macOS](https://img.shields.io/badge/macOS-10.13+-brightgreen.svg)](https://www.apple.com/macos/)
 
-[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-ready-blue.svg)](https://www.jamf.com/)This script safely migrates macOS devices from Netskope to Minecast in Jamf-managed environments. It handles the complete removal of Netskope and its dependencies, then installs Minecast via Jamf policy.
-
-
-
-A comprehensive bash script for safely migrating macOS devices from Netskope to any Data Loss Prevention (DLP) solution in Jamf-managed environments. This tool handles complete removal of Netskope and its dependencies, then installs your target DLP solution via Jamf policy.## Features
+[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-Compatible-blue.svg)](https://www.jamf.com/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)## Overview
 
 
 
-## 🌟 Features- ✅ **Smart Detection**: Skips installation if Minecast is already present
+A comprehensive bash script for safely migrating macOS devices from Netskope to any Data Loss Prevention (DLP) solution in Jamf-managed environments.[![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen.svg)](https://www.apple.com/macos/)
 
-- ✅ **Complete Removal**: Removes all Netskope components (apps, daemons, receipts)
 
-- ✅ **Universal DLP Support**: Works with any DLP solution (Code42, Mimecast, Forcepoint, etc.)- ✅ **Non-Blocking Errors**: Continues execution even if errors occur
 
-- ✅ **Smart Detection**: Automatically skips installation if target DLP is already present- ✅ **Jamf Logging**: All logs are sent to Jamf (no local log files)
+---[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-ready-blue.svg)](https://www.jamf.com/)This script safely migrates macOS devices from Netskope to Minecast in Jamf-managed environments. It handles the complete removal of Netskope and its dependencies, then installs Minecast via Jamf policy.
 
-- ✅ **Complete Removal**: Removes all Netskope components including:- ✅ **Health Checks**: Comprehensive verification of migration status
 
-  - Applications and system files- ✅ **Policy-Based Installation**: Uses Jamf policy ID for Minecast installation
 
-  - Launch daemons and agents
+## 🎯 Overview
 
-  - Kernel extensions (KEXTs)## Jamf Configuration
 
-  - System extensions
+
+This tool automates the complete migration process by:A comprehensive bash script for safely migrating macOS devices from Netskope to any Data Loss Prevention (DLP) solution in Jamf-managed environments. This tool handles complete removal of Netskope and its dependencies, then installs your target DLP solution via Jamf policy.## Features
+
+- Removing all Netskope components (apps, extensions, network configs)
+
+- Installing your target DLP solution via Jamf policy
+
+- Performing comprehensive health checks
+
+- Providing detailed logging and error reporting## 🌟 Features- ✅ **Smart Detection**: Skips installation if Minecast is already present
+
+
+
+**Supported DLP Solutions:** Code42, Mimecast, Forcepoint, and easily customizable for others.- ✅ **Complete Removal**: Removes all Netskope components (apps, daemons, receipts)
+
+
+
+---- ✅ **Universal DLP Support**: Works with any DLP solution (Code42, Mimecast, Forcepoint, etc.)- ✅ **Non-Blocking Errors**: Continues execution even if errors occur
+
+
+
+## ✨ Features- ✅ **Smart Detection**: Automatically skips installation if target DLP is already present- ✅ **Jamf Logging**: All logs are sent to Jamf (no local log files)
+
+
+
+| Feature | Description |- ✅ **Complete Removal**: Removes all Netskope components including:- ✅ **Health Checks**: Comprehensive verification of migration status
+
+|---------|-------------|
+
+| **Universal DLP Support** | Works with any DLP solution - just configure the paths |  - Applications and system files- ✅ **Policy-Based Installation**: Uses Jamf policy ID for Minecast installation
+
+| **Smart Detection** | Skips installation if target DLP is already present |
+
+| **Complete Removal** | Removes all Netskope components comprehensively |  - Launch daemons and agents
+
+| **Non-Blocking Errors** | Continues execution even if individual steps fail |
+
+| **Jamf Integration** | Seamless policy-based installation |  - Kernel extensions (KEXTs)## Jamf Configuration
+
+| **Detailed Logging** | All logs sent directly to Jamf for monitoring |
+
+| **Health Checks** | Automatic verification of migration success |  - System extensions
+
+| **Production Ready** | Battle-tested with enterprise-grade error handling |
 
   - Network configurations (VPN, proxy, DNS)### Script Parameters
 
+---
+
   - User-specific files across all accounts
+
+## 📋 Prerequisites
 
   - Package receipts- **Parameter 4**: Minecast install policy ID (default: `269`)
 
-- ✅ **Non-Blocking Errors**: Continues execution even if errors occur- **Parameter 5**: Log level - `DEBUG`, `INFO`, `WARN`, `ERROR` (default: `INFO`)
+- macOS 10.13 or later
 
-- ✅ **Jamf Integration**: Seamless integration with Jamf Pro policies
+- Jamf Pro environment- ✅ **Non-Blocking Errors**: Continues execution even if errors occur- **Parameter 5**: Log level - `DEBUG`, `INFO`, `WARN`, `ERROR` (default: `INFO`)
 
-- ✅ **Comprehensive Logging**: Detailed logs sent directly to Jamf### Setup in Jamf Pro
+- Root/sudo privileges
 
-- ✅ **Health Checks**: Automatic verification of migration status
+- Jamf policy configured for your DLP installation- ✅ **Jamf Integration**: Seamless integration with Jamf Pro policies
 
-- ✅ **Production Ready**: Battle-tested error handling and recovery1. **Upload the Script**
 
-   - Navigate to: Settings → Computer Management → Scripts
 
-## 📋 Prerequisites   - Click "New"
+---- ✅ **Comprehensive Logging**: Detailed logs sent directly to Jamf### Setup in Jamf Pro
+
+
+
+## 🚀 Quick Start- ✅ **Health Checks**: Automatic verification of migration status
+
+
+
+### 1. Clone the Repository- ✅ **Production Ready**: Battle-tested error handling and recovery1. **Upload the Script**
+
+
+
+```bash   - Navigate to: Settings → Computer Management → Scripts
+
+git clone https://github.com/caputoDavide93/netskope-to-dlp-migration.git
+
+cd netskope-to-dlp-migration## 📋 Prerequisites   - Click "New"
+
+```
 
    - Upload `migrate_to_minecast.sh`
 
+### 2. Upload to Jamf Pro
+
 - macOS 10.13 or later   - Set display name: "Netskope to Minecast Migration"
 
-- Jamf Pro management
+1. Navigate to: **Settings → Computer Management → Scripts**
 
-- Root/sudo privileges2. **Configure Policy**
+2. Click **New**- Jamf Pro management
 
-- Jamf policy configured for your target DLP installation   - Create a new policy or edit existing
+3. Upload `migrate_to_dlp.sh`
 
-   - Add the script
-
-## 🚀 Installation   - Configure parameters:
-
-     - Parameter 4: `269` (Minecast install policy ID)
-
-### Quick Start     - Parameter 5: `INFO` (or `DEBUG` for detailed logging)
+4. Set display name: `Netskope to DLP Migration`- Root/sudo privileges2. **Configure Policy**
 
 
 
-1. **Clone the repository**3. **Scope**
-
-   ```bash   - Target computers that need migration
-
-   git clone https://github.com/caputoDavide93/netskope-to-dlp-migration.git   - Recommended: Use smart groups based on installed software
-
-   cd netskope-to-dlp-migration
-
-   ```### Example Configuration
+### 3. Create Jamf Policy- Jamf policy configured for your target DLP installation   - Create a new policy or edit existing
 
 
 
-2. **Upload to Jamf Pro**```
+1. Create a new policy   - Add the script
 
-   - Navigate to: **Settings → Computer Management → Scripts**Script: migrate_to_minecast.sh
+2. Add the migration script
 
-   - Click **New**Parameter 4: 269
+3. Configure parameters:## 🚀 Installation   - Configure parameters:
 
-   - Upload `migrate_to_dlp.sh`Parameter 5: INFO
+   - **Parameter 4:** Your DLP policy ID (e.g., `269`)
 
-   - Set display name: "Netskope to DLP Migration"Execution Frequency: Once per computer
+   - **Parameter 5:** Log level (e.g., `INFO`)     - Parameter 4: `269` (Minecast install policy ID)
 
-```
+4. Set execution frequency: **Once per computer**
 
-3. **Configure Jamf Policy**
-
-   - Create a new policy or edit existing## What the Script Does
-
-   - Add the migration script
-
-   - Configure parameters (see below)### 1. Pre-Migration Check
-
-   - Set scope to target computers- Detects if Netskope is installed
-
-- Checks if Minecast is already present
-
-## ⚙️ Configuration- Exits early if system is already in desired state
+5. Scope to target devices### Quick Start     - Parameter 5: `INFO` (or `DEBUG` for detailed logging)
 
 
 
-### Jamf Parameters### 2. Netskope Removal
+---
 
 
 
-| Parameter | Description | Default | Example |**Comprehensive cleanup includes:**
+## ⚙️ Configuration1. **Clone the repository**3. **Scope**
+
+
+
+### Jamf Parameters   ```bash   - Target computers that need migration
+
+
+
+| Parameter | Description | Default | Options |   git clone https://github.com/caputoDavide93/netskope-to-dlp-migration.git   - Recommended: Use smart groups based on installed software
 
 |-----------|-------------|---------|---------|
 
-| **$4** | DLP install policy ID | 269 | Your Jamf policy ID |- **Processes**: Stops all Netskope processes (stagent, stAgentSvc, stAgentUI, etc.)
+| `$4` | DLP installation policy ID | `269` | Any valid Jamf policy ID |   cd netskope-to-dlp-migration
 
-| **$5** | Log verbosity level | INFO | DEBUG, INFO, WARN, ERROR |- **Launch Agents/Daemons**: Unloads and removes all launchd items
+| `$5` | Log verbosity level | `INFO` | `DEBUG`, `INFO`, `WARN`, `ERROR` |
 
-- **Kernel Extensions**: Unloads and removes kernel extensions (if present)
+   ```### Example Configuration
 
-### Example Policy Configuration- **System Extensions**: Identifies and removes system/network extensions
+### Example Configuration
 
-- **Applications**: 
 
-```  - `/Applications/Netskope Client.app`
 
-Script: migrate_to_dlp.sh  - `/Applications/Remove Netskope Client.app`
+```bash
 
-Parameter 4: 269- **System Files**:
+# In Jamf Policy:2. **Upload to Jamf Pro**```
 
-Parameter 5: INFO  - `/Library/Application Support/Netskope`
+Parameter 4: 269
 
-Execution Frequency: Once per computer  - `/usr/local/netskope`
+Parameter 5: INFO   - Navigate to: **Settings → Computer Management → Scripts**Script: migrate_to_minecast.sh
 
-```  - `/tmp/nsbranding`
+```
 
-- **System Preferences**:
+   - Click **New**Parameter 4: 269
 
-### Customizing for Your DLP Solution  - `/Library/Preferences/com.netskope.*`
+### Customize for Your DLP Solution
 
-  - `/Library/Managed Preferences/com.netskope.*`
+   - Upload `migrate_to_dlp.sh`Parameter 5: INFO
 
-Edit the `DLP_PATHS` and `DLP_PKGS` arrays in the script to match your DLP solution:- **User-Specific Files** (for all users):
+Edit the script to match your DLP solution's paths:
 
-  - `~/Library/Preferences/com.netskope.*`
+   - Set display name: "Netskope to DLP Migration"Execution Frequency: Once per computer
 
-```bash  - `~/Library/Application Support/Netskope`
+```bash
 
-DLP_PATHS=(  - `~/Library/Caches/com.netskope.*`
+DLP_PATHS=(```
 
-    "/Applications/YourDLP.app"  - `~/Library/Saved Application State/com.netskope.*`
+    "/Applications/YourDLP.app"
 
-    "/Library/Application Support/YourDLP"  - `~/Library/Logs/Netskope`
+    "/Library/Application Support/YourDLP"3. **Configure Jamf Policy**
 
-)- **Network Configurations**:
+)
 
-  - VPN configurations
+   - Create a new policy or edit existing## What the Script Does
 
-DLP_PKGS=("yourdlp" "com.yourdlp")  - Proxy settings (web, secure web, PAC)
+DLP_PKGS=("yourdlp" "com.yourdlp")
 
-```  - DNS resolver configurations
+```   - Add the migration script
 
-- **Package Receipts**: Removes all with `pkgutil --forget`
 
-## 📖 Usage
 
-### 3. Minecast Installation
+---   - Configure parameters (see below)### 1. Pre-Migration Check
 
-### Via Jamf Pro (Recommended)- Runs Jamf policy by ID to install Minecast
 
-- Waits for installation to complete (max 90 seconds)
 
-1. Create a smart group targeting devices with Netskope installed- Verifies installation success
+## 📖 Usage   - Set scope to target computers- Detects if Netskope is installed
+
+
+
+### Via Jamf Pro (Recommended)- Checks if Minecast is already present
+
+
+
+1. Create a smart group for devices with Netskope## ⚙️ Configuration- Exits early if system is already in desired state
 
 2. Create a policy with the migration script
 
-3. Scope to your target smart group### 4. Health Check
+3. Scope to your smart group
 
-4. Run the policy- Confirms Netskope removal
+4. Deploy
 
-- Verifies Minecast installation
+### Jamf Parameters### 2. Netskope Removal
 
-### Manual Execution (Testing)- Checks for conflicting processes
+### Manual Testing
+
+
+
+```bash
+
+sudo ./migrate_to_dlp.sh 269 DEBUG| Parameter | Description | Default | Example |**Comprehensive cleanup includes:**
+
+```
+
+|-----------|-------------|---------|---------|
+
+---
+
+| **$4** | DLP install policy ID | 269 | Your Jamf policy ID |- **Processes**: Stops all Netskope processes (stagent, stAgentSvc, stAgentUI, etc.)
+
+## 🔍 How It Works
+
+| **$5** | Log verbosity level | INFO | DEBUG, INFO, WARN, ERROR |- **Launch Agents/Daemons**: Unloads and removes all launchd items
+
+### Step 1: Pre-Migration Check
+
+- Detects Netskope installation- **Kernel Extensions**: Unloads and removes kernel extensions (if present)
+
+- Checks if target DLP is already present
+
+- Exits early if already migrated### Example Policy Configuration- **System Extensions**: Identifies and removes system/network extensions
+
+
+
+### Step 2: Netskope Removal- **Applications**: 
+
+
+
+**Processes & Services**```  - `/Applications/Netskope Client.app`
+
+- Stops all Netskope processes
+
+- Unloads launch daemons and agentsScript: migrate_to_dlp.sh  - `/Applications/Remove Netskope Client.app`
+
+
+
+**System Components**Parameter 4: 269- **System Files**:
+
+- Removes applications
+
+- Cleans kernel extensions (KEXTs)Parameter 5: INFO  - `/Library/Application Support/Netskope`
+
+- Removes system extensions
+
+- Deletes support filesExecution Frequency: Once per computer  - `/usr/local/netskope`
+
+
+
+**Configuration & Preferences**```  - `/tmp/nsbranding`
+
+- System preferences
+
+- Managed preferences- **System Preferences**:
+
+- User-specific preferences (all users)
+
+### Customizing for Your DLP Solution  - `/Library/Preferences/com.netskope.*`
+
+**Network Settings**
+
+- VPN configurations  - `/Library/Managed Preferences/com.netskope.*`
+
+- Proxy settings
+
+- DNS resolversEdit the `DLP_PATHS` and `DLP_PKGS` arrays in the script to match your DLP solution:- **User-Specific Files** (for all users):
+
+
+
+**Cleanup Locations:**  - `~/Library/Preferences/com.netskope.*`
+
+```
+
+/Applications/Netskope Client.app```bash  - `~/Library/Application Support/Netskope`
+
+/Library/Application Support/Netskope
+
+/Library/LaunchDaemons/com.netskope.*DLP_PATHS=(  - `~/Library/Caches/com.netskope.*`
+
+/Library/LaunchAgents/com.netskope.*
+
+/Library/Preferences/com.netskope.*    "/Applications/YourDLP.app"  - `~/Library/Saved Application State/com.netskope.*`
+
+/Library/Extensions/Netskope*.system
+
+/usr/local/netskope    "/Library/Application Support/YourDLP"  - `~/Library/Logs/Netskope`
+
+/tmp/nsbranding
+
+~/Library/Preferences/com.netskope.*)- **Network Configurations**:
+
+~/Library/Application Support/Netskope
+
+~/Library/Caches/com.netskope.*  - VPN configurations
+
+/etc/resolver/netskope*
+
+```DLP_PKGS=("yourdlp" "com.yourdlp")  - Proxy settings (web, secure web, PAC)
+
+
+
+### Step 3: DLP Installation```  - DNS resolver configurations
+
+- Executes Jamf policy by ID
+
+- Waits for installation completion- **Package Receipts**: Removes all with `pkgutil --forget`
+
+- Verifies successful installation
+
+## 📖 Usage
+
+### Step 4: Health Check
+
+- Confirms Netskope removal### 3. Minecast Installation
+
+- Verifies DLP installation
+
+- Checks for conflicts### Via Jamf Pro (Recommended)- Runs Jamf policy by ID to install Minecast
+
+- Reports system status
+
+- Waits for installation to complete (max 90 seconds)
+
+### Step 5: Summary Report
+
+- Success/failure status1. Create a smart group targeting devices with Netskope installed- Verifies installation success
+
+- Lists errors and warnings
+
+- Provides recommendations2. Create a policy with the migration script
+
+
+
+---3. Scope to your target smart group### 4. Health Check
+
+
+
+## 📊 Exit Codes4. Run the policy- Confirms Netskope removal
+
+
+
+| Code | Meaning |- Verifies Minecast installation
+
+|------|---------|
+
+| `0` | Success - Migration completed or DLP already installed |### Manual Execution (Testing)- Checks for conflicting processes
+
+| `1` | Critical failure - Manual intervention required |
 
 - Validates system state
 
+---
+
 ```bash
+
+## 🛠️ Troubleshooting
 
 sudo ./migrate_to_dlp.sh <policy_id> <log_level>### 5. Summary Report
 
+### Issue: DLP Not Detected After Installation
+
 ```- Provides clear success/failure status
 
-- Lists all errors and warnings
+**Solution:**
 
-Example:- Logs execution time and details
+1. Verify the policy ID is correct- Lists all errors and warnings
 
-```bash
+2. Check `DLP_PATHS` and `DLP_PKGS` match your solution
 
-sudo ./migrate_to_dlp.sh 269 DEBUG## Exit Codes
+3. Review Jamf policy logsExample:- Logs execution time and details
 
-```
+4. Run with `DEBUG` level:
 
-- `0` = Success (migration completed or Minecast already present)
+   ```bash```bash
 
-## 🔍 What the Script Does- `1` = Critical failure (manual intervention required)
+   sudo ./migrate_to_dlp.sh 269 DEBUG
+
+   ```sudo ./migrate_to_dlp.sh 269 DEBUG## Exit Codes
 
 
+
+### Issue: Netskope Remnants Still Present```
+
+
+
+**Solution:**- `0` = Success (migration completed or Minecast already present)
+
+
+
+Some components require a reboot:## 🔍 What the Script Does- `1` = Critical failure (manual intervention required)
+
+- System extensions
+
+- Kernel extensions
+
+- Network configurations
 
 ### 1. Pre-Migration Check## Log Output
 
-- Detects if Netskope is installed
+**Manual Check:**
 
-- Checks if target DLP is already presentAll logs are sent to stdout and captured by Jamf. Example:
+```bash- Detects if Netskope is installed
 
-- Exits early if system is already in desired state
+# Check for running processes
+
+pgrep -if netskope- Checks if target DLP is already presentAll logs are sent to stdout and captured by Jamf. Example:
+
+
+
+# Check launchd items- Exits early if system is already in desired state
+
+ls -la /Library/Launch{Daemons,Agents}/com.netskope.* 2>/dev/null
 
 ```
 
-### 2. Netskope Removal[2025-10-29 10:30:45] [INFO] ==========================================
+# Check system extensions
+
+systemextensionsctl list | grep -i netskope### 2. Netskope Removal[2025-10-29 10:30:45] [INFO] ==========================================
+
+```
 
 [2025-10-29 10:30:45] [INFO] Minecast Migration Script Started
 
+### Issue: Permission Denied
+
 The script performs comprehensive cleanup of all Netskope components:[2025-10-29 10:30:45] [INFO] ==========================================
+
+**Solution:**
 
 [2025-10-29 10:30:45] [INFO] Script version: 1.0
 
-#### Process Management[2025-10-29 10:30:45] [INFO] Start time: 2025-10-29 10:30:45
+Ensure root privileges:
 
-- Stops all Netskope processes (stagent, stAgentSvc, stAgentUI, NetskopeClient)[2025-10-29 10:30:46] [INFO] macOS Version: 14.5
+```bash#### Process Management[2025-10-29 10:30:45] [INFO] Start time: 2025-10-29 10:30:45
 
-[2025-10-29 10:30:46] [INFO] Minecast Policy ID: 269
+sudo ./migrate_to_dlp.sh 269 INFO
 
-#### System Components```
+```- Stops all Netskope processes (stagent, stAgentSvc, stAgentUI, NetskopeClient)[2025-10-29 10:30:46] [INFO] macOS Version: 14.5
 
-- **Launch Agents/Daemons**: Unloads and removes all launchd items
+
+
+### Issue: Script Hangs During Execution[2025-10-29 10:30:46] [INFO] Minecast Policy ID: 269
+
+
+
+**Solution:**#### System Components```
+
+1. Check if Netskope processes are frozen
+
+2. Force kill processes: `sudo pkill -9 -f Netskope`- **Launch Agents/Daemons**: Unloads and removes all launchd items
+
+3. Run script again
 
 - **Kernel Extensions**: Unloads and removes KEXTs (if present)## Monitoring in Jamf
 
+---
+
 - **System Extensions**: Identifies and removes system/network extensions
+
+## 🤝 Contributing
 
 - **Applications**: 1. **View Logs**
 
+Contributions are welcome! Please follow these steps:
+
   - `/Applications/Netskope Client.app`   - Go to the computer record
 
-  - `/Applications/Remove Netskope Client.app`   - Click "Policy Logs"
+1. **Fork** the repository
 
-   - Find the migration policy
+2. **Create** a feature branch  - `/Applications/Remove Netskope Client.app`   - Click "Policy Logs"
 
-#### System Files   - Review complete output
+   ```bash
 
-- `/Library/Application Support/Netskope`
+   git checkout -b feature/YourFeature   - Find the migration policy
 
-- `/usr/local/netskope`2. **Check Status**
+   ```
 
-- `/tmp/nsbranding`   - Look for `✓ MIGRATION SUCCESSFUL` in logs
+3. **Test** thoroughly in a safe environment#### System Files   - Review complete output
 
-- `/Library/Extensions/Netskope*.system`   - Verify Minecast appears in installed software
+4. **Commit** your changes
+
+   ```bash- `/Library/Application Support/Netskope`
+
+   git commit -m 'Add YourFeature'
+
+   ```- `/usr/local/netskope`2. **Check Status**
+
+5. **Push** to your branch
+
+   ```bash- `/tmp/nsbranding`   - Look for `✓ MIGRATION SUCCESSFUL` in logs
+
+   git push origin feature/YourFeature
+
+   ```- `/Library/Extensions/Netskope*.system`   - Verify Minecast appears in installed software
+
+6. **Open** a Pull Request
 
    - Confirm Netskope is no longer listed
 
+### Contribution Guidelines
+
 #### Preferences & Configuration
 
-- `/Library/Preferences/com.netskope.*`3. **Troubleshooting**
+- Test in non-production environment first
 
-- `/Library/Managed Preferences/com.netskope.*`   - If errors occur, check the detailed log output
+- Follow existing code style- `/Library/Preferences/com.netskope.*`3. **Troubleshooting**
 
-   - Script continues even on errors (non-blocking)
+- Update documentation for new features
 
-#### User-Specific Files (All Users)   - Look for `[ERROR]` and `[WARN]` tags in logs
-
-- `~/Library/Preferences/com.netskope.*`
-
-- `~/Library/Application Support/Netskope`## Error Handling
-
-- `~/Library/Caches/com.netskope.*`
-
-- `~/Library/Saved Application State/com.netskope.*`The script is designed to be **resilient**:
-
-- `~/Library/Logs/Netskope`- Errors don't stop execution
-
-- Each step is logged independently
-
-#### Network Configurations- Continues with next step even if previous fails
-
-- VPN configurations- Final summary reports all issues
-
-- Proxy settings (web, secure web, PAC)
-
-- DNS resolver configurations (`/etc/resolver/netskope*`)## Smart Features
+- Add entries to CHANGELOG.md- `/Library/Managed Preferences/com.netskope.*`   - If errors occur, check the detailed log output
 
 
 
-#### Package Receipts### Skip If Already Migrated
+---   - Script continues even on errors (non-blocking)
 
-- Removes all Netskope package receipts with `pkgutil --forget`If Minecast is installed and Netskope is not present, the script exits immediately:
 
-```
 
-### 3. DLP Installation[INFO] System is already in desired state (Minecast installed, Netskope removed)
+## 📝 License#### User-Specific Files (All Users)   - Look for `[ERROR]` and `[WARN]` tags in logs
 
-- Runs Jamf policy by ID to install target DLP[INFO] No migration needed - exiting successfully
 
-- Waits for installation to complete (max 90 seconds)```
 
-- Verifies installation success
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.- `~/Library/Preferences/com.netskope.*`
 
-### Partial Success Handling
+
+
+---- `~/Library/Application Support/Netskope`## Error Handling
+
+
+
+## 👤 Author- `~/Library/Caches/com.netskope.*`
+
+
+
+**Davide Caputo**- `~/Library/Saved Application State/com.netskope.*`The script is designed to be **resilient**:
+
+
+
+- GitHub: [@caputoDavide93](https://github.com/caputoDavide93)- `~/Library/Logs/Netskope`- Errors don't stop execution
+
+
+
+---- Each step is logged independently
+
+
+
+## 🙏 Acknowledgments#### Network Configurations- Continues with next step even if previous fails
+
+
+
+- Jamf community for inspiration and support- VPN configurations- Final summary reports all issues
+
+- macOS system administration best practices
+
+- Open source community- Proxy settings (web, secure web, PAC)
+
+
+
+---- DNS resolver configurations (`/etc/resolver/netskope*`)## Smart Features
+
+
+
+## ⚠️ Disclaimer
+
+
+
+This script is provided **as-is**, without warranty of any kind. Always test in a non-production environment first. The author is not responsible for any data loss or system issues that may occur.#### Package Receipts### Skip If Already Migrated
+
+
+
+---- Removes all Netskope package receipts with `pkgutil --forget`If Minecast is installed and Netskope is not present, the script exits immediately:
+
+
+
+## 📚 Resources```
+
+
+
+- [Jamf Pro Documentation](https://docs.jamf.com/)### 3. DLP Installation[INFO] System is already in desired state (Minecast installed, Netskope removed)
+
+- [macOS Deployment Guide](https://support.apple.com/guide/deployment/welcome/web)
+
+- [Bash Best Practices](https://google.github.io/styleguide/shellguide.html)- Runs Jamf policy by ID to install target DLP[INFO] No migration needed - exiting successfully
+
+
+
+---- Waits for installation to complete (max 90 seconds)```
+
+
+
+## 🔖 Version- Verifies installation success
+
+
+
+**Current Version:** 2.0.0  ### Partial Success Handling
+
+**Last Updated:** October 29, 2025
 
 ### 4. Health CheckIf Minecast installs but Netskope remnants remain:
 
+---
+
 - Confirms Netskope removal```
+
+> **Note:** This is an independent open-source tool. It is not affiliated with or endorsed by Netskope, Jamf, or any DLP vendor.
 
 - Verifies DLP installation[WARN] ⚠ PARTIAL SUCCESS
 
