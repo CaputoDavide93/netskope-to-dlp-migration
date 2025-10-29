@@ -107,7 +107,7 @@ systemextensionsctl list | grep -i netskope
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## �� Author
+## 👤 Author
 
 **Davide Caputo**
 - GitHub: [@caputoDavide93](https://github.com/caputoDavide93)
