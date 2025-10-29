@@ -10,7 +10,7 @@ An automated bash script for migrating macOS devices from Netskope to any DLP (D
 ## ✨ Features
 
 - 🔄 **Complete Migration** - Removes all Netskope components and installs your DLP
-- 🎯 **Universal DLP Support** - Works with Code42, Mimecast, Forcepoint, or any DLP
+- 🎯 **Universal DLP Support** - Works with any DLP solution (Code42, Mimecast, Forcepoint, etc.)
 - 🧹 **Deep Cleanup** - Removes apps, extensions, configs, network settings, and user files
 - 📊 **Health Checks** - Verifies successful migration with detailed reporting
 - 🔐 **Production Ready** - Non-blocking error handling and comprehensive logging
@@ -63,13 +63,6 @@ DLP_PATHS=(
 DLP_PKGS=("yourdlp" "com.yourdlp")
 ```
 
-### Pre-configured Support
-
-The script includes paths for:
-- Code42
-- Mimecast  
-- Forcepoint
-
 ## 🧹 What Gets Removed
 
 - ✅ Netskope applications and processes
@@ -114,7 +107,7 @@ systemextensionsctl list | grep -i netskope
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👤 Author
+## �� Author
 
 **Davide Caputo**
 - GitHub: [@caputoDavide93](https://github.com/caputoDavide93)

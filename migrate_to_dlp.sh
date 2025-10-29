@@ -73,18 +73,15 @@ NETSKOPE_USER_PATHS=(
     "Library/Logs/Netskope"
 )
 
+# DLP paths - CUSTOMIZE THESE FOR YOUR DLP SOLUTION
 DLP_PATHS=(
-    "/Applications/Code42-AAT.app"
-    "/Applications/Mimecast.app"
-    "/Applications/Forcepoint.app"
-    "/Library/Application Support/Code42"
-    "/Library/Application Support/Mimecast"
-    "/Library/Application Support/Forcepoint"
+    "/Applications/YourDLP.app"
+    "/Library/Application Support/YourDLP"
 )
 
 # Package identifiers for receipt checking
 NETSKOPE_PKGS=("netskope" "com.netskope" "stagent")
-DLP_PKGS=("code42" "mimecast" "code42-aat" "com.code42" "forcepoint" "com.forcepoint")
+DLP_PKGS=("yourdlp" "com.yourdlp")
 
 # Timing configurations
 MAX_WAIT_REMOVAL=60      # Max seconds to wait for removal completion
