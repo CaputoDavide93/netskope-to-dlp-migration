@@ -1,88 +1,174 @@
-# Netskope to DLP Migration Script# Netskope to DLP Migration Script# Netskope to DLP Migration Script# Netskope to DLP Migration Script# Netskope to Minecast Migration Script
+# Netskope to DLP Migration Script# Netskope to DLP Migration Script# Netskope to DLP Migration Script# Netskope to DLP Migration Script# Netskope to DLP Migration Script# Netskope to Minecast Migration Script
 
 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-[![macOS](https://img.shields.io/badge/macOS-10.13+-brightgreen.svg)](https://www.apple.com/macos/)
-
-[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-Compatible-blue.svg)](https://www.jamf.com/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+A bash script for migrating macOS devices from Netskope to any DLP solution via Jamf Pro.
 
 
+
+## Features[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+
+
+- Complete Netskope removal[![macOS](https://img.shields.io/badge/macOS-10.13+-brightgreen.svg)](https://www.apple.com/macos/)
+
+- Universal DLP support
+
+- Automated installation via Jamf[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-Compatible-blue.svg)](https://www.jamf.com/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+- Comprehensive logging
+
+
+
+## Requirements
 
 A bash script for migrating macOS devices from Netskope to any DLP solution via Jamf Pro.[![macOS](https://img.shields.io/badge/macOS-10.13+-brightgreen.svg)](https://www.apple.com/macos/)
 
-
-
-## Features[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-Compatible-blue.svg)](https://www.jamf.com/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-
-
-- Universal DLP support (Code42, Mimecast, Forcepoint, or any DLP)
-
-- Complete Netskope removal (apps, extensions, configs, user files)
-
-- Automated DLP installation via Jamf policyA bash script for migrating macOS devices from Netskope to any DLP solution via Jamf Pro.[![macOS](https://img.shields.io/badge/macOS-10.13+-brightgreen.svg)](https://www.apple.com/macos/)
-
-- Comprehensive logging and health checks
-
-
-
-## Requirements
-
-## Features[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-Compatible-blue.svg)](https://www.jamf.com/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)## Overview
-
-- macOS 10.13 or later
-
-- Jamf Pro environment
-
-- Root privileges
-
-- Jamf policy configured for DLP installation- Universal DLP support (Code42, Mimecast, Forcepoint, or any DLP)
-
-
-
-## Installation- Complete Netskope removal (apps, extensions, configs, user files)
-
-
-
-**1. Clone Repository**- Automated DLP installation via Jamf policyA comprehensive bash script for safely migrating macOS devices from Netskope to any Data Loss Prevention (DLP) solution in Jamf-managed environments.[![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen.svg)](https://www.apple.com/macos/)
-
-
-
-```bash- Comprehensive logging and health checks
-
-git clone https://github.com/caputoDavide93/netskope-to-dlp-migration.git
-
-cd netskope-to-dlp-migration
-
-```
-
-## Requirements
-
-**2. Upload to Jamf Pro**
-
----[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-ready-blue.svg)](https://www.jamf.com/)This script safely migrates macOS devices from Netskope to Minecast in Jamf-managed environments. It handles the complete removal of Netskope and its dependencies, then installs Minecast via Jamf policy.
-
-- Navigate to **Settings → Computer Management → Scripts**
-
-- Click **New** and upload `migrate_to_dlp.sh`- macOS 10.13+
-
-- Save as "Netskope to DLP Migration"
+- macOS 10.13+
 
 - Jamf Pro
 
-**3. Create Policy**
+- Root privileges
+
+## Features[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-Compatible-blue.svg)](https://www.jamf.com/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Installation
+
+
+
+Clone the repository:
+
+- Universal DLP support (Code42, Mimecast, Forcepoint, or any DLP)
+
+```bash
+
+git clone https://github.com/caputoDavide93/netskope-to-dlp-migration.git- Complete Netskope removal (apps, extensions, configs, user files)
+
+```
+
+- Automated DLP installation via Jamf policyA bash script for migrating macOS devices from Netskope to any DLP solution via Jamf Pro.[![macOS](https://img.shields.io/badge/macOS-10.13+-brightgreen.svg)](https://www.apple.com/macos/)
+
+Upload to Jamf Pro:
+
+- Comprehensive logging and health checks
+
+1. Go to Settings → Computer Management → Scripts
+
+2. Click New and upload `migrate_to_dlp.sh`
+
+3. Save as "Netskope to DLP Migration"
+
+## Requirements
+
+Create a policy:
+
+## Features[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-Compatible-blue.svg)](https://www.jamf.com/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)## Overview
+
+1. Create new policy
+
+2. Add the script- macOS 10.13 or later
+
+3. Set Parameter 4 to your DLP policy ID (e.g., 269)
+
+4. Set Parameter 5 to log level (INFO or DEBUG)- Jamf Pro environment
+
+5. Scope to target devices
 
 - Root privileges
 
+## Configuration
+
+- Jamf policy configured for DLP installation- Universal DLP support (Code42, Mimecast, Forcepoint, or any DLP)
+
+Edit the script to match your DLP:
+
+
+
+```bash
+
+DLP_PATHS=(## Installation- Complete Netskope removal (apps, extensions, configs, user files)
+
+    "/Applications/YourDLP.app"
+
+    "/Library/Application Support/YourDLP"
+
+)
+
+**1. Clone Repository**- Automated DLP installation via Jamf policyA comprehensive bash script for safely migrating macOS devices from Netskope to any Data Loss Prevention (DLP) solution in Jamf-managed environments.[![macOS](https://img.shields.io/badge/macOS-compatible-brightgreen.svg)](https://www.apple.com/macos/)
+
+DLP_PKGS=("yourdlp" "com.yourdlp")
+
+```
+
+
+
+## Usage```bash- Comprehensive logging and health checks
+
+
+
+Deploy via Jamf policy or test manually:git clone https://github.com/caputoDavide93/netskope-to-dlp-migration.git
+
+
+
+```bashcd netskope-to-dlp-migration
+
+sudo ./migrate_to_dlp.sh 269 DEBUG
+
+``````
+
+
+
+## Exit Codes## Requirements
+
+
+
+- 0 = Success**2. Upload to Jamf Pro**
+
+- 1 = Failure
+
+---[![Jamf Pro](https://img.shields.io/badge/Jamf%20Pro-ready-blue.svg)](https://www.jamf.com/)This script safely migrates macOS devices from Netskope to Minecast in Jamf-managed environments. It handles the complete removal of Netskope and its dependencies, then installs Minecast via Jamf policy.
+
+## Troubleshooting
+
+- Navigate to **Settings → Computer Management → Scripts**
+
+**DLP not detected:** Verify policy ID and DLP_PATHS match your solution.
+
+- Click **New** and upload `migrate_to_dlp.sh`- macOS 10.13+
+
+**Netskope remains:** Some components need a reboot. Run again after restart.
+
+- Save as "Netskope to DLP Migration"
+
+**Check manually:**
+
+- Jamf Pro
+
+```bash
+
+pgrep -if netskope**3. Create Policy**
+
+ls /Library/Launch{Daemons,Agents}/com.netskope.* 2>/dev/null
+
+systemextensionsctl list | grep -i netskope- Root privileges
+
+```
+
 - Create new policy in Jamf Pro
+
+## License
 
 - Add the migration script- Jamf policy configured for DLP installation## 🎯 Overview
 
+MIT License - see [LICENSE](LICENSE)
+
 - Set Parameter 4: Your DLP policy ID (e.g., 269)
 
+## Author
+
 - Set Parameter 5: Log level (INFO or DEBUG)
+
+Davide Caputo - [@caputoDavide93](https://github.com/caputoDavide93)
 
 - Scope to target computers
 
